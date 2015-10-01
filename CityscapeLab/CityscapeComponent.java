@@ -1,6 +1,10 @@
+ 
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
+import java.awt.Rectangle;
+import java.awt.Color;
 
 /**
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
@@ -28,6 +32,11 @@ public class CityscapeComponent extends JComponent
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
+        
+        Rectangle ground = new Rectangle(0, 475, 800, 125);
+        g2.setColor(Color.GREEN);
+        g2.fill(ground);
+        g2.draw(ground);
         
         // invoke the draw method on each object in your Cityscape
         // ...
