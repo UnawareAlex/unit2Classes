@@ -1,5 +1,13 @@
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
+import java.net.URL;
+import java.util.Arrays;
 
 /**
  * Write a description of class Sky here.
@@ -10,7 +18,7 @@ import java.awt.image.BufferedImage;
 public class Sky
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private BufferedImage img;
 
     /**
      * Default constructor for objects of class Sky
@@ -18,24 +26,38 @@ public class Sky
     public Sky()
     {
         // initialise instance variables
-        x = 0;
+        // declares an array of integers
+        String[] anArray;
+        // allocates memory for 10 integers
+        anArray = new String[7];  
+        // initialize first element
+        anArray[0] = "http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg";
+        // initialize second element
+        anArray[1] = "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinnacles_Night_Sky_-_Flickr_-_Joe_Parks.jpg";
+        // and so forth
+        anArray[2] = "http://a.abcnews.go.com/images/Technology/ht_New_York_20_darkened_skies_ll_130307_wblog.jpg";
+        anArray[3] = "https://upload.wikimedia.org/wikipedia/commons/8/81/Sky_over_Washington_Monument.JPG";
+        anArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
+        anArray[5] = "https://static.pexels.com/photos/1195/nature-sky-clouds-cloudy.jpg";
+        anArray[6] = "http://alfahadfurniture.com/wp-content/uploads/Cool-Sky-Wallpaper-1024x576.jpg";
+        
+       // Random generator
+        
+        try {
+            URL url = new URL("http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg");
+            img = ImageIO.read(url);
+        } catch (IOException e) {
+        }
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Draws a image pulled randomly from the array
+     * @param   g2      the graphics context
      */
-    public int sampleMethod(int y)
+    public void draw(Graphics2D g2)
     {
         // put your code here
-        return x+y;
+       g2.drawImage(img, 0, 0, 800, 475, null);
     }
 
 }

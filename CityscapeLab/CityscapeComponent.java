@@ -38,6 +38,9 @@ public class CityscapeComponent extends JComponent
         g2.fill(ground);
         g2.draw(ground);
         
+        Sky sky1 = new Sky();
+        sky1.draw(g2);
+        
         // invoke the draw method on each object in your Cityscape
         // ...
         
