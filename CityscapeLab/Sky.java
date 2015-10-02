@@ -8,7 +8,7 @@ import javax.imageio.*;
 import javax.swing.*;
 import java.net.URL;
 import java.util.Arrays;
-
+import java.util.Random;
 /**
  * Write a description of class Sky here.
  * 
@@ -27,24 +27,26 @@ public class Sky
     {
         // initialise instance variables
         // declares an array of integers
-        String[] anArray;
+        String[] skyArray;
         // allocates memory for 10 integers
-        anArray = new String[7];  
+        skyArray = new String[7];  
         // initialize first element
-        anArray[0] = "http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg";
+        skyArray[0] = "http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg";
         // initialize second element
-        anArray[1] = "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinnacles_Night_Sky_-_Flickr_-_Joe_Parks.jpg";
+        skyArray[1] = "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinnacles_Night_Sky_-_Flickr_-_Joe_Parks.jpg";
         // and so forth
-        anArray[2] = "http://a.abcnews.go.com/images/Technology/ht_New_York_20_darkened_skies_ll_130307_wblog.jpg";
-        anArray[3] = "https://upload.wikimedia.org/wikipedia/commons/8/81/Sky_over_Washington_Monument.JPG";
-        anArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
-        anArray[5] = "https://static.pexels.com/photos/1195/nature-sky-clouds-cloudy.jpg";
-        anArray[6] = "http://alfahadfurniture.com/wp-content/uploads/Cool-Sky-Wallpaper-1024x576.jpg";
+        skyArray[2] = "http://a.abcnews.go.com/images/Technology/ht_New_York_20_darkened_skies_ll_130307_wblog.jpg";
+        skyArray[3] = "https://upload.wikimedia.org/wikipedia/commons/8/81/Sky_over_Washington_Monument.JPG";
+        skyArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
+        skyArray[5] = "https://static.pexels.com/photos/1195/nature-sky-clouds-cloudy.jpg";
+        skyArray[6] = "http://alfahadfurniture.com/wp-content/uploads/Cool-Sky-Wallpaper-1024x576.jpg";
         
-       // Random generator
+       Random generator = new Random();
+       int x = generator.nextInt(7);
+       String imgLoc = skyArray[x];
         
         try {
-            URL url = new URL("http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg");
+            URL url = new URL(imgLoc);
             img = ImageIO.read(url);
         } catch (IOException e) {
         }
