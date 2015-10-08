@@ -38,7 +38,7 @@ public class Sky
         skyArray[2] = "http://a.abcnews.go.com/images/Technology/ht_New_York_20_darkened_skies_ll_130307_wblog.jpg";
         skyArray[3] = "https://upload.wikimedia.org/wikipedia/commons/8/81/Sky_over_Washington_Monument.JPG";
         skyArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
-        skyArray[5] = "https://static.pexels.com/photos/1195/nature-sky-clouds-cloudy.jpg";
+        skyArray[5] = "http://www.freewhd.com/wp-content/uploads/2014/01/new-york-city-skyline-14317.jpg";
         skyArray[6] = "http://alfahadfurniture.com/wp-content/uploads/Cool-Sky-Wallpaper-1024x576.jpg";
         
        Random generator = new Random();

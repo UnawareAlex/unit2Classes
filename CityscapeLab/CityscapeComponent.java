@@ -1,10 +1,9 @@
- 
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 import java.awt.Rectangle;
 import java.awt.Color;
+import java.util.Random;
 
 /**
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
@@ -15,14 +14,33 @@ import java.awt.Color;
  */
 public class CityscapeComponent extends JComponent
 {
-    // define the objects in your Cityscape as instance variables
-    // ...
+    private Sky sky;
+    private Building tower1;
+    private Building tower2;
+    private Building tower3;
+   
     
-    
-    
-    // define the CityscapeComponent contructor and intiailize all instance variables
-    // ...
-    
+    public CityscapeComponent()
+    {
+        this.sky = new Sky();
+        //random generator(s) for position, width and height of buildings in skyline
+        Random generator = new Random();
+            int xLeft_1 = generator.nextInt(651) + 50;
+            int yTop_1 = generator.nextInt(351) + 50;
+            int width_1 = generator.nextInt(151) + 50;
+            int height_1 = (600 - yTop_1) - 125;  
+        this.tower1 = new Building(xLeft_1, yTop_1, width_1, height_1);
+            int xLeft_2 = generator.nextInt(651) + 50;
+            int yTop_2 = generator.nextInt(351) + 50;
+            int width_2 = generator.nextInt(151) + 50;
+            int height_2 = (600 - yTop_2) - 125;
+        this.tower2 = new Building(xLeft_2, yTop_2, width_2, height_2);   
+            int xLeft_3 = generator.nextInt(651) + 50;
+            int yTop_3 = generator.nextInt(351) + 50;
+            int width_3 = generator.nextInt(151) + 50;
+            int height_3 = (600 - yTop_3) - 125;
+        this.tower3 = new Building(xLeft_3, yTop_3, width_3, height_3);
+    }
     
     /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
@@ -33,13 +51,17 @@ public class CityscapeComponent extends JComponent
     {
         Graphics2D g2 = (Graphics2D) g;
         
+        //draws the sky as an randomly generated imported image chosen from an array
+        //this.sky.draw(g2);
+        
         Rectangle ground = new Rectangle(0, 475, 800, 125);
         g2.setColor(Color.GREEN);
         g2.fill(ground);
         g2.draw(ground);
         
-        Sky sky1 = new Sky();
-        sky1.draw(g2);
+        tower1.draw(g2);
+        tower2.draw(g2);
+        tower3.draw(g2);
         
         // invoke the draw method on each object in your Cityscape
         // ...
