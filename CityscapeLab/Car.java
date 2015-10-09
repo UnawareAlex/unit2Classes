@@ -43,19 +43,24 @@ public class Car
      */
     public void draw(Graphics2D g2)
     {
-        //main body of the building
-        int move = 0;
-        int time = 0;
-        while (time < 5478392)
-        {
-            Rectangle car = new Rectangle(xLeft + move, yTop, width, height);
-            g2.setColor(Color.WHITE);
-            g2.draw(car);
-            g2.fill(car);
-            move += 10;
-            time +=1;
+        //the car
+        Rectangle car = new Rectangle(xLeft, yTop, width, height);
+        Ellipse2D.Double wheel1 
+            = new Ellipse2D.Double(xLeft + 6, yTop + 20, 12, 12);
+        Ellipse2D.Double wheel2 
+            = new Ellipse2D.Double(xLeft + 38, yTop + 20, 12, 12);    
+        
+        g2.setColor(Color.WHITE);
+        g2.draw(car);
+        g2.fill(car);
+        g2.setColor(Color.BLACK);
+        g2.draw(wheel1);
+        g2.fill(wheel1);
+        g2.draw(wheel2);
+        g2.fill(wheel2);
+        xLeft += 10;
         }
     }
 
-}
+
 

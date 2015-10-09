@@ -18,7 +18,7 @@ public class CityscapeComponent extends JComponent
     private Building tower1;
     private Building tower2;
     private Building tower3;
-    //private Car car;
+    private Car car;
  
     public CityscapeComponent()
     {
@@ -41,7 +41,7 @@ public class CityscapeComponent extends JComponent
 //             int height_3 = (600 - yTop_3) - 125;
         this.tower3 = new Building(685, 325, 110, 150);
         
-        //this.car = new Car(25, 450, 50, 25);
+        this.car = new Car(25, 450, 55, 25);
     }
     
     /**
@@ -55,22 +55,23 @@ public class CityscapeComponent extends JComponent
         
         //draws the sky as an randomly generated imported image chosen from an array
         this.sky.draw(g2);
-        
+        //Creates a green base (grass)
         Rectangle ground = new Rectangle(0, 475, 800, 125);
         g2.setColor(Color.GREEN);
-        g2.fill(ground);
         g2.draw(ground);
-        
-        tower1.draw(g2);
-        tower2.draw(g2);
-        tower3.draw(g2);
-        
-        
-        
-        Car car = new Car(25, 450, 50, 25);
+        g2.fill(ground);
+        //Creates a road between the buildings and the grass
+        Rectangle road = new Rectangle(0, 475, 800, 10);
+        g2.setColor(Color.GRAY);
+        g2.draw(road);
+        g2.fill(road);
+        //draws the towers
+        this.tower1.draw(g2);
+        this.tower2.draw(g2);
+        this.tower3.draw(g2);
+        //draws the car (animated)
         car.draw(g2);
-        
-        
+
         // invoke the draw method on each object in your Cityscape
         // ...
         

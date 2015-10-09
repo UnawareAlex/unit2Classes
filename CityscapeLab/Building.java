@@ -53,16 +53,41 @@ public class Building
     {
         //main body of the building
         Rectangle frame = new Rectangle(xLeft, yTop, width, height);
-        Rectangle window = new Rectangle(wndLeft, wndTop, wndWidth, wndHeight);
-
         g2.setColor(Color.DARK_GRAY);
         g2.draw(frame);
         g2.fill(frame);
         
-        g2.setColor(Color.YELLOW);
-        g2.draw(window);
-        g2.fill(window);
+        
+        
+        int numWinY = 0;
+        int numWinX = 0;
+        
+        //I'm trying to create a loop in which it creates windows horizontally until it runs out
+        //  of room, in which it exits the inside loop and moves down a row and returns to the 
+        //  inside loop, creating the next row of windows, and so on
+        //
+        //All I get is an upside-down L shape of windows that appears BELOW and to the right
+        //  of my tower(s) and then disappears (animated for some reason?)
+        
+        while (numWinY < height)
+        {
+            while (numWinX < width)
+            {
+                Rectangle window = new Rectangle(wndLeft, wndTop, wndWidth, wndHeight);
+                g2.setColor(Color.YELLOW);
+                g2.draw(window);
+                g2.fill(window);
+                wndLeft += 4;
+                numWinX += 4;
+            }
+            Rectangle window = new Rectangle(wndLeft, wndTop, wndWidth, wndHeight);
+            g2.setColor(Color.YELLOW);
+            g2.draw(window);
+            g2.fill(window);
+            wndTop += 4;
+            numWinY += 4;
+        }
     }
-
 }
+
 
