@@ -23,11 +23,9 @@ public class CityscapeComponent extends JComponent
     public CityscapeComponent()
     {
         this.sky = new Sky();
-
         this.tower1 = new Building(50, 220, 80, 28);
         this.tower2 = new Building(580, 75, 90, 46);   
         this.tower3 = new Building(685, 363, 110, 10);
-        
         this.car = new Car(25, 450, 55, 25);
     }
     
@@ -52,12 +50,12 @@ public class CityscapeComponent extends JComponent
         g2.setColor(Color.GRAY);
         g2.draw(road);
         g2.fill(road);
-        //draws the towers
+        //draws the towers (lights animated)
         this.tower1.draw(g2);
         this.tower2.draw(g2);
         this.tower3.draw(g2);
         //draws the car (animated)
-        car.draw(g2);
+        this.car.draw(g2);
 
         // invoke the draw method on each object in your Cityscape
         // ...

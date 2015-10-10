@@ -21,7 +21,6 @@ public class Building
     private int floors;
     private int wndLeft;
     private int wndTop;
-    private int num;
     /**
      * Constructs building with a given top left corner and predetermined length and heighth
      * @param   x   the x-cord of the top-left corner   
@@ -46,14 +45,12 @@ public class Building
      */
     public void draw(Graphics2D g2)
     {
+        Random generator = new Random();
         //draws the main body of the building
         Rectangle frame = new Rectangle(xLeft, yTop, width, 32 + floors*8);
         g2.setColor(Color.DARK_GRAY);
         g2.draw(frame);
         g2.fill(frame);
-        //randomly determines the state of the window (ON or OFF)
-        Random generator = new Random();
-        
         //draws the windows
         int numWinY = 1;
         int numWinX = 1;
@@ -62,7 +59,7 @@ public class Building
             while (numWinX < width/10)
             {
                 Rectangle window = new Rectangle(wndLeft + 10*(numWinX), wndTop + 10*(numWinY), 4, 4);
-                this.num = generator.nextInt(2);
+                int num = generator.nextInt(2); //randomly generates value (0,1) to determine window color
                 if (num == 0)
                 {
                     g2.setColor(Color.YELLOW);
@@ -70,7 +67,7 @@ public class Building
                 else
                 {
                     g2.setColor(Color.BLACK);
-                }
+                } 
                 g2.draw(window);
                 g2.fill(window);
                 numWinX += 1;
