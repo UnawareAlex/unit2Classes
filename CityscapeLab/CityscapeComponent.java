@@ -18,6 +18,8 @@ public class CityscapeComponent extends JComponent
     private Building tower1;
     private Building tower2;
     private Building tower3;
+    private Building tower4;
+    private Building tower5;
     private Car car;
  
     public CityscapeComponent()
@@ -26,6 +28,8 @@ public class CityscapeComponent extends JComponent
         this.tower1 = new Building(50, 220, 80, 28);
         this.tower2 = new Building(580, 75, 90, 46);   
         this.tower3 = new Building(685, 363, 110, 10);
+        this.tower4 = new Building(180, 381, 70, 8);
+        this.tower5 = new Building(150, 497, 60, 6);
         this.car = new Car(25, 450, 55, 25);
     }
     
@@ -54,6 +58,8 @@ public class CityscapeComponent extends JComponent
         this.tower1.draw(g2);
         this.tower2.draw(g2);
         this.tower3.draw(g2);
+        this.tower4.draw(g2);
+        this.tower5.draw(g2);
         //draws the car (animated)
         this.car.draw(g2);
 

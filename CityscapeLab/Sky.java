@@ -31,15 +31,15 @@ public class Sky
         // allocates memory for 10 integers
         skyArray = new String[7];  
         // initialize first element
-        skyArray[0] = "http://i.huffpost.com/gen/2409604/images/o-BEST-SPACE-PHOTOS-2014-facebook.jpg";
+        skyArray[0] = "http://img11.deviantart.net/f8e1/i/2012/206/a/6/tatooine_sunsets_by_snickers109-d58l2p5.jpg";
         // initialize second element
         skyArray[1] = "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinnacles_Night_Sky_-_Flickr_-_Joe_Parks.jpg";
         // and so forth
         skyArray[2] = "http://a.abcnews.go.com/images/Technology/ht_New_York_20_darkened_skies_ll_130307_wblog.jpg";
         skyArray[3] = "https://upload.wikimedia.org/wikipedia/commons/8/81/Sky_over_Washington_Monument.JPG";
         skyArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
-        skyArray[5] = "http://www.freewhd.com/wp-content/uploads/2014/01/new-york-city-skyline-14317.jpg";
-        skyArray[6] = "http://alfahadfurniture.com/wp-content/uploads/Cool-Sky-Wallpaper-1024x576.jpg";
+        skyArray[5] = "http://www.wall321.com/thumbnails/detail/20130120/cityscapes%20night%20lights%20futuristic%20artwork%20city%20skyline%20skyscapes%20future%20architecture%201280x1024%20w_www.wall321.com_40.jpg";
+        skyArray[6] = "http://img09.deviantart.net/4e58/i/2014/134/e/b/coruscant__2_by_daroz-d7idgv0.jpg";
         
        Random generator = new Random();
        int x = generator.nextInt(7);
