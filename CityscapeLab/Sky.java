@@ -47,7 +47,7 @@ public class Sky
         
         try {
             URL url = new URL(imgLoc);
-            img = ImageIO.read(url);
+            this.img = ImageIO.read(url);
         } catch (IOException e) {
         }
     }

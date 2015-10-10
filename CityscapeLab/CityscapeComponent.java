@@ -23,23 +23,10 @@ public class CityscapeComponent extends JComponent
     public CityscapeComponent()
     {
         this.sky = new Sky();
-        //random generator(s) for position, width and height of buildings in skyline
-//         Random generator = new Random();
-//             int xLeft_1 = generator.nextInt(651) + 50;
-//             int yTop_1 = generator.nextInt(351) + 50;
-//             int width_1 = generator.nextInt(151) + 50;
-//             int height_1 = (600 - yTop_1) - 125;  
-         this.tower1 = new Building(50, 200, 80, 275);
-//             int xLeft_2 = generator.nextInt(651) + 50;
-//             int yTop_2 = generator.nextInt(351) + 50;
-//             int width_2 = generator.nextInt(151) + 50;
-//             int height_2 = (600 - yTop_2) - 125;
-         this.tower2 = new Building(580, 150, 90, 325);   
-//             int xLeft_3 = generator.nextInt(651) + 50;
-//             int yTop_3 = generator.nextInt(351) + 50;
-//             int width_3 = generator.nextInt(151) + 50;
-//             int height_3 = (600 - yTop_3) - 125;
-        this.tower3 = new Building(685, 325, 110, 150);
+
+        this.tower1 = new Building(50, 220, 80, 28);
+        this.tower2 = new Building(580, 75, 90, 46);   
+        this.tower3 = new Building(685, 363, 110, 10);
         
         this.car = new Car(25, 450, 55, 25);
     }

@@ -18,12 +18,10 @@ public class Building
     private int xLeft;
     private int yTop;
     private int width;
-    private int height;
+    private int floors;
     private int wndLeft;
     private int wndTop;
-    private final int wndWidth;
-    private final int wndHeight;
-
+    private int num;
     /**
      * Constructs building with a given top left corner and predetermined length and heighth
      * @param   x   the x-cord of the top-left corner   
@@ -31,18 +29,15 @@ public class Building
      * @param   w   the width of the building (along the x axis)
      * @param   h   the height of the buuilding (along the y axis)
      */
-    public Building(int x, int y, int w, int h)
+    public Building(int x, int y, int w, int f )
     {
         // initialise instance variables
         xLeft = x;
         yTop = y;
         width = w;
-        height = h;
-        wndLeft = x + 4;
-        wndTop = y + 4;
-        wndWidth = 2;
-        wndHeight = 2;
-        
+        floors = f;
+        wndLeft = x - 2;
+        wndTop = y - 2;
     }
     
     /**
@@ -51,41 +46,37 @@ public class Building
      */
     public void draw(Graphics2D g2)
     {
-        //main body of the building
-        Rectangle frame = new Rectangle(xLeft, yTop, width, height);
+        //draws the main body of the building
+        Rectangle frame = new Rectangle(xLeft, yTop, width, 32 + floors*8);
         g2.setColor(Color.DARK_GRAY);
         g2.draw(frame);
         g2.fill(frame);
+        //randomly determines the state of the window (ON or OFF)
+        Random generator = new Random();
         
-        
-        
-        int numWinY = 0;
-        int numWinX = 0;
-        
-        //I'm trying to create a loop in which it creates windows horizontally until it runs out
-        //  of room, in which it exits the inside loop and moves down a row and returns to the 
-        //  inside loop, creating the next row of windows, and so on
-        //
-        //All I get is an upside-down L shape of windows that appears BELOW and to the right
-        //  of my tower(s) and then disappears (animated for some reason?)
-        
-        while (numWinY < height)
+        //draws the windows
+        int numWinY = 1;
+        int numWinX = 1;
+        while (numWinY < floors*(.8)) //floors multiplied by a factor of floors over floor height
         {
-            while (numWinX < width)
+            while (numWinX < width/10)
             {
-                Rectangle window = new Rectangle(wndLeft, wndTop, wndWidth, wndHeight);
-                g2.setColor(Color.YELLOW);
+                Rectangle window = new Rectangle(wndLeft + 10*(numWinX), wndTop + 10*(numWinY), 4, 4);
+                this.num = generator.nextInt(2);
+                if (num == 0)
+                {
+                    g2.setColor(Color.YELLOW);
+                }
+                else
+                {
+                    g2.setColor(Color.BLACK);
+                }
                 g2.draw(window);
                 g2.fill(window);
-                wndLeft += 4;
-                numWinX += 4;
+                numWinX += 1;
             }
-            Rectangle window = new Rectangle(wndLeft, wndTop, wndWidth, wndHeight);
-            g2.setColor(Color.YELLOW);
-            g2.draw(window);
-            g2.fill(window);
-            wndTop += 4;
-            numWinY += 4;
+            numWinX = 1;
+            numWinY +=1;
         }
     }
 }
