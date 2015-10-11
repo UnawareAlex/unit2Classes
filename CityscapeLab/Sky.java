@@ -10,15 +10,16 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.Random;
 /**
- * Write a description of class Sky here.
+ * Creates a background image for the Cityscape by randomly choosing a URL from an array, which is then
+ *      passed into a draw method
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Alex Arnold
+ * @version (10/11/15)
  */
 public class Sky
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private BufferedImage img;
+    private BufferedImage img;  //defines the image location (URL)
 
     /**
      * Default constructor for objects of class Sky
@@ -28,7 +29,7 @@ public class Sky
         // initialise instance variables
         // declares an array of integers
         String[] skyArray;
-        // allocates memory for 10 integers
+        // allocates memory for 7 integers
         skyArray = new String[7];  
         // initialize first element
         skyArray[0] = "http://img11.deviantart.net/f8e1/i/2012/206/a/6/tatooine_sunsets_by_snickers109-d58l2p5.jpg";
@@ -40,11 +41,11 @@ public class Sky
         skyArray[4] = "https://upload.wikimedia.org/wikipedia/commons/f/f9/The_Burning_Sky.JPG";
         skyArray[5] = "http://www.wall321.com/thumbnails/detail/20130120/cityscapes%20night%20lights%20futuristic%20artwork%20city%20skyline%20skyscapes%20future%20architecture%201280x1024%20w_www.wall321.com_40.jpg";
         skyArray[6] = "http://img09.deviantart.net/4e58/i/2014/134/e/b/coruscant__2_by_daroz-d7idgv0.jpg";
-        
-       Random generator = new Random();
-       int x = generator.nextInt(7);
-       String imgLoc = skyArray[x];
-        
+        //creates random generator to randomly choose a URL from the array 
+        Random generator = new Random();
+        int x = generator.nextInt(7);
+        String imgLoc = skyArray[x];
+       
         try {
             URL url = new URL(imgLoc);
             this.img = ImageIO.read(url);
@@ -61,5 +62,4 @@ public class Sky
         // put your code here
        g2.drawImage(img, 0, 0, 800, 475, null);
     }
-
 }

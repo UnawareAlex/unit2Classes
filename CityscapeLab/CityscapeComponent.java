@@ -56,20 +56,15 @@ public class CityscapeComponent extends JComponent
         g2.setColor(Color.GRAY);
         g2.draw(road);
         g2.fill(road);
-        //draws the towers (lights animated)
+        //draws the buildings (lights are animated?)
         this.tower1.draw(g2);
         this.tower2.draw(g2);
         this.tower3.draw(g2);
         this.tower4.draw(g2);
         this.tower5.draw(g2);
         this.tower6.draw(g2);
-        //draws the car (animated)
+        //draws the car
         this.car.draw(g2);
-
-        // invoke the draw method on each object in your Cityscape
-        // ...
-        
-        
     }
     
     /**
@@ -79,8 +74,7 @@ public class CityscapeComponent extends JComponent
     public void nextFrame()
     {
         // update the objects in the cityscape so they are animated
-        // ...
-        this.car.changeXPos();
+        this.car.changeXPos(10);
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         repaint();
     }

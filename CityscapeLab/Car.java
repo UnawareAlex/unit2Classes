@@ -7,25 +7,26 @@ import java.awt.Color;
 import java.util.Random;
 
 /**
- * Write a description of class Car here.
+ * Creates a car object that can be animated to move forward
+ *      by changing the value of x-position of all the parts
  * 
  * @author Alex Arnold
- * @version 1
+ * @version (10/11/15)
  */
 public class Car
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int xLeft;
-    private int yTop;
-    private int width;
-    private int height;
+    private int xLeft;  //defines the starting x-position for the compononents of the car
+    private int yTop;   //defines the starting y-position for the componenents of the car
+    private int width;  //defines the width of the car body in terms of pixels
+    private int height; //defines the height of the car body in terms of pixels
     
     /**
-     * Constructs building with a given top left corner and predetermined length and heighth
+     * Constructs car with a given top left corner and predetermined width and height
      * @param   x   the x-cord of the top-left corner   
      * @param   y   the y-cord of the top-left corner
-     * @param   w   the width of the building (along the x axis)
-     * @param   h   the height of the buuilding (along the y axis)
+     * @param   w   the width of the car (along the x axis)
+     * @param   h   the height of the car (along the y axis)
      */
     public Car(int x, int y, int w, int h)
     {
@@ -34,20 +35,22 @@ public class Car
         yTop = y;
         width = w;
         height = h;
-       
     }
     
     /**
-     * Draws the building
+     * Draws the body of the car and the two wheels based off of values passed in to the parameters
+     *      in the CityscapeComponent Constructor
      * @param g2     the graphics context
      */
     public void draw(Graphics2D g2)
     {
-        //the car
+        //body of the car
         Rectangle car = new Rectangle(xLeft, yTop, width, height);
+        //wheel 1
         Ellipse2D.Double wheel1 
             = new Ellipse2D.Double(xLeft + 6, yTop + 20, 12, 12);
-        Ellipse2D.Double wheel2 
+        //wheel 2
+            Ellipse2D.Double wheel2 
             = new Ellipse2D.Double(xLeft + 38, yTop + 20, 12, 12);    
         
         g2.setColor(Color.WHITE);
@@ -58,22 +61,16 @@ public class Car
         g2.fill(wheel1);
         g2.draw(wheel2);
         g2.fill(wheel2);
-        //xLeft += 10;
     }
     
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y
+     * Animates the car by changing the value of the x-position of the components that make up the car
+     * @param  x   how many pixels the car will move per second (to the right)
      */
     public void changeXPos(int x)
     {
-        // put your code here
         this.xLeft += x;
-        
     }
-
 }
 
 

@@ -7,26 +7,26 @@ import java.awt.Color;
 import java.util.Random;
 
 /**
- * Write a description of class Buildings here.
+ * Creates a building object that can be set to a specific position, width, and height
  * 
  * @author Alex Arnold
- * @version 1
+ * @version (10/11/15)
  */
 public class Building
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int xLeft;
-    private int yTop;
-    private int width;
-    private int floors;
-    private int wndLeft;
-    private int wndTop;
+    private int xLeft;      //defines the starting x-position for the building
+    private int yTop;       //defines the starting y-position for the building
+    private int width;      //defines the width along the x-axis in pixels
+    private int floors;     //defines the number of floors the building has
+    private int wndLeft;    //defines the starting x-position for the windows
+    private int wndTop;     //deinfes the starting y-position for the windows
     /**
-     * Constructs building with a given top left corner and predetermined length and heighth
-     * @param   x   the x-cord of the top-left corner   
-     * @param   y   the y-cord of the top-left corner
+     * Constructs building with a given top left corner and predetermined length and number of floors
+     * @param   x   the x-cord of the top-left corner of the building   
+     * @param   y   the y-cord of the top-left corner of the building
      * @param   w   the width of the building (along the x axis)
-     * @param   h   the height of the buuilding (along the y axis)
+     * @param   f   the number of floors in the building 
      */
     public Building(int x, int y, int w, int f )
     {
@@ -40,11 +40,12 @@ public class Building
     }
     
     /**
-     * Draws the building
+     * Draws the building and windows
      * @param g2     the graphics context
      */
     public void draw(Graphics2D g2)
     {
+        //creates random generator for use in determining state of windows 
         Random generator = new Random();
         //draws the main body of the building
         Rectangle frame = new Rectangle(xLeft, yTop, width, 32 + floors*8);
