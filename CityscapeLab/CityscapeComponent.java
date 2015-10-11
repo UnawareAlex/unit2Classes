@@ -20,6 +20,7 @@ public class CityscapeComponent extends JComponent
     private Building tower3;
     private Building tower4;
     private Building tower5;
+    private Building tower6;
     private Car car;
  
     public CityscapeComponent()
@@ -30,6 +31,7 @@ public class CityscapeComponent extends JComponent
         this.tower3 = new Building(685, 363, 110, 10);
         this.tower4 = new Building(178, 371, 70, 9);
         this.tower5 = new Building(150, 395, 60, 6);
+        this.tower6 = new Building(270, 187, 120, 32);
         this.car = new Car(25, 450, 55, 25);
     }
     
@@ -60,6 +62,7 @@ public class CityscapeComponent extends JComponent
         this.tower3.draw(g2);
         this.tower4.draw(g2);
         this.tower5.draw(g2);
+        this.tower6.draw(g2);
         //draws the car (animated)
         this.car.draw(g2);
 
@@ -77,7 +80,7 @@ public class CityscapeComponent extends JComponent
     {
         // update the objects in the cityscape so they are animated
         // ...
-        
+        this.car.changeXPos();
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         repaint();
     }
