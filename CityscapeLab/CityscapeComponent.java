@@ -14,25 +14,33 @@ import java.util.Random;
  */
 public class CityscapeComponent extends JComponent
 {
-    private Sky sky;
-    private Building tower1;
-    private Building tower2;
-    private Building tower3;
-    private Building tower4;
-    private Building tower5;
-    private Building tower6;
-    private Car car;
+    private SkyNight night;     //defines image of sky (if night)
+    private SkyDay day;         //defines image of sky (if day)
+    private Building tower1;    //defines instance of a building
+    private Building tower2;    //defines instance of a building
+    private Building tower3;    //defines instance of a building
+    private Building tower4;    //defines instance of a building
+    private Building tower5;    //defines instance of a building
+    private Building tower6;    //defines instance of a building
+    private Building tower7;    //defines instance of a building
+    private Truck truck;        //defines instance of a truck
+    private Car car;            //defines instane of a car
+    private int stateSky;       //takes in value passed from Scanner method in Viewer Class to determine time of day
  
-    public CityscapeComponent()
+    public CityscapeComponent(int x)
     {
-        this.sky = new Sky();
+        this.night = new SkyNight();
+        this.day = new SkyDay();
         this.tower1 = new Building(50, 218, 80, 28);
         this.tower2 = new Building(580, 75, 90, 46);   
         this.tower3 = new Building(685, 363, 110, 10);
         this.tower4 = new Building(178, 371, 70, 9);
         this.tower5 = new Building(150, 395, 60, 6);
         this.tower6 = new Building(270, 187, 120, 32);
-        this.car = new Car(25, 450, 55, 25);
+        this.tower7 = new Building(400, 323, 150, 15);
+        this.truck = new Truck(25, 450, 55, 25);
+        this.car = new Car(20, 463, 40, 10);
+        this.stateSky = x;
     }
     
     /**
@@ -44,8 +52,13 @@ public class CityscapeComponent extends JComponent
     {
         Graphics2D g2 = (Graphics2D) g;
         
-        //draws the sky as an randomly generated imported image chosen from an array
-        this.sky.draw(g2);
+        //draws (based on user input) a randomly generated imported image chosen from an array as the sky
+        if (this.stateSky == 1) {
+            this.night.draw(g2);
+        } else {
+            this.day.draw(g2);
+        }
+            
         //Creates a green base (grass)
         Rectangle ground = new Rectangle(0, 475, 800, 125);
         g2.setColor(Color.GREEN);
@@ -56,15 +69,17 @@ public class CityscapeComponent extends JComponent
         g2.setColor(Color.GRAY);
         g2.draw(road);
         g2.fill(road);
-        //draws the buildings (lights are animated?)
+        //draws the buildings (Bonus: lights are unitentionally animated!)
         this.tower1.draw(g2);
         this.tower2.draw(g2);
         this.tower3.draw(g2);
         this.tower4.draw(g2);
         this.tower5.draw(g2);
         this.tower6.draw(g2);
-        //draws the car
+        this.tower7.draw(g2);
+        //draws the car and the truck
         this.car.draw(g2);
+        this.truck.draw(g2);
     }
     
     /**
@@ -75,6 +90,7 @@ public class CityscapeComponent extends JComponent
     {
         // update the objects in the cityscape so they are animated
         this.car.changeXPos(10);
+        this.truck.changeXPos(5);
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         repaint();
     }
